@@ -40,3 +40,4 @@ coverage
 
 # Babel compiler files
 dist
+.babelrc
