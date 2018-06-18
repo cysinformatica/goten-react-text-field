@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GotenTextField snapshots type email 1`] = `
+<div>
+  <label
+    className="label"
+  >
+    Email 
+  </label>
+  <input
+    className="undefined"
+    label="Email"
+    onChange={[Function]}
+    type="email"
+    value=""
+  />
+  <br />
+</div>
+`;
+
+exports[`GotenTextField snapshots type invalid 1`] = `
+<div>
+  <label
+    className="label"
+  >
+    Invalid 
+  </label>
+  <input
+    className="undefined"
+    label="Invalid"
+    onChange={[Function]}
+    type="invalid"
+    value=""
+  />
+  <br />
+</div>
+`;
+
+exports[`GotenTextField snapshots type number 1`] = `
+<div>
+  <label
+    className="label"
+  >
+    Number 
+  </label>
+  <input
+    className="undefined"
+    label="Number"
+    onChange={[Function]}
+    type="number"
+    value=""
+  />
+  <br />
+</div>
+`;
+
+exports[`GotenTextField snapshots type password 1`] = `
+<div>
+  <label
+    className="label"
+  >
+    Password 
+  </label>
+  <input
+    className="undefined"
+    label="Password"
+    onChange={[Function]}
+    type="password"
+    value=""
+  />
+  <br />
+</div>
+`;
+
+exports[`GotenTextField snapshots type text 1`] = `
+<div>
+  <label
+    className="label"
+  >
+    Text 
+  </label>
+  <input
+    className="undefined"
+    label="Text"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <br />
+</div>
+`;
+
+exports[`GotenTextField snapshots type time 1`] = `
+<div>
+  <label
+    className="label"
+  >
+    Time 
+  </label>
+  <input
+    className="undefined"
+    label="Time"
+    onChange={[Function]}
+    type="time"
+    value=""
+  />
+  <br />
+</div>
+`;
+
+exports[`GotenTextField snapshots type url 1`] = `
+<div>
+  <label
+    className="label"
+  >
+    Url 
+  </label>
+  <input
+    className="undefined"
+    label="Url"
+    onChange={[Function]}
+    type="url"
+    value=""
+  />
+  <br />
+</div>
+`;

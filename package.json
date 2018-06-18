@@ -1,0 +1,59 @@
+{
+  "name": "goten-react-text-field",
+  "version": "1.0.0",
+  "description": "GotenTextField is a react component that facilitates the use of text inputs.",
+  "author": "Nicolas Meilan <sebastian.nicolas.meilan@gmail.com>",
+  "main": "dist/index.js",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CySidi/goten-react-text-field"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:updateSnapshot": "jest --updateSnapshot",
+    "start": "webpack-dev-server --mode development",
+    "build": "babel src -d dist --copy-files",
+    "prepare": "npm run build",
+    "precommit": "npm run test"
+  },
+  "peerDependencies": {
+    "react": ">=15.0.1",
+    "react-dom": ">=15.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.1.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-test-renderer": "^16.4.0",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "keywords": [
+      "goten",
+      "GotenJS",
+      "gonten component",
+      "goten-react",
+      "input",
+      "react",
+      "react component",
+      "text input",
+      "text field",
+      "TextInput",
+      "TextField"
+  ]
+}

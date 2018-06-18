@@ -1,0 +1,15 @@
+.item {
+    padding-right: 30px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+.message {
+    font-size: 15px;
+}
