@@ -44,16 +44,16 @@
     "webpack-dev-server": "^3.1.4"
   },
   "keywords": [
-      "goten",
-      "GotenJS",
-      "gonten component",
-      "goten-react",
-      "input",
-      "react",
-      "react component",
-      "text input",
-      "text field",
-      "TextInput",
-      "TextField"
+    "goten",
+    "GotenJS",
+    "gonten component",
+    "goten-react",
+    "input",
+    "react",
+    "react component",
+    "text input",
+    "text field",
+    "TextInput",
+    "TextField"
   ]
 }
