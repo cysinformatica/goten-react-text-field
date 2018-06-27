@@ -44,7 +44,7 @@ export class GotenTextField extends Component {
     render() {
         return (
             <div>
-                <label className='label'>{this.props.label + ' '}</label>
+                <label className='label'>{this.props.label ? this.props.label + ' ' : ''}</label>
                 {React.cloneElement(<input />, this._getProps())}
                 <br/>
                 { this.props.showError &&
