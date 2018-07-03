@@ -1,9 +1,17 @@
 language: node_js
 sudo: false
 node_js:
-  - "9"
-  - "10"
+- '9'
+- '10'
 install:
-  - npm install
+- npm install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: npm
+  email: YOUR_EMAIL_ADDRESS
+  api_key:
+    secure: yOVb0nU/MJjJPMKvRJXejFAhUAAeypogem+b8hB24uClHWl3bJiDCBYXvaWB+BrPGe2CidTm7m1fxnxTNqqHABwH4C8Y0m/v3+MAYN3x5YEfQpXxNRgKyJawaOA6bVUWMLG9TmaGeqwPrd9tBz4ChunxUTxLgaQ+O7QaBQKBRLF8N9t/ba+TtRuAgaTamtljzZIclhmBXy16q68/5ljjcXKUKJlKDO8JM/LJQK2UssWDL039Hjg4YhSU4FbMijCsEh84qORFybdp/uxPeCyFTPvrwKlO2QEeTqpgCkIQKRP52FNJ6wfy3rirfX8H4vH6cniDyxe2S5V8lbF+dmDPga9nFsQVrKkTVKIonVgFsjeo73+S/IJAB2yZPn8LvlK9I1OIyjtvyRHFTI9sd8QSAjTSf1n7GIIqYQ8J1KtT8qp5f0GH+jatL+jStBdqLxd/K/z0N6ox090liSW1+jxuwzNAS8lYzeEcqVRDAiLlqveWVUSTUQFuc7ENvkWTW+RAzdx7TKa4O/JH4cKiTV6Mz+ihpDMyojtQPjNPHhzHmDPYLjk/3NnGvtlzAWhW573NS2o+p/HAAnoROwPB9H4zCyrvcW99euC0qDLnhjQFmdYZgs1mVOySidnxXZgaiq6JcNuX8GSH9+i6vAgJoN2DP0l3l9S76Z5IwaHQyJDT6gE=
+  tags: true
+  on:
+    branch: master
