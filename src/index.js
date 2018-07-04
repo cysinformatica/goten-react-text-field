@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { PubSub } from 'pubsub-js'
 
 import './gotenTextField.css'
 
@@ -7,6 +8,8 @@ const defaultValue = ''
 const defaultType = 'text'
 const defaultIsRequiredMessage = '* is required'
 const defaultTypeErrorMessage = '{label} must be a {type}'
+
+const pubsubMessageResponse = '_RESPONSE'
 
 const textInputState = {
     value: defaultValue,
@@ -34,8 +37,22 @@ export class GotenTextField extends Component {
         this.value = this.state.value
         this.type = this.props.type ? this.props.type : defaultType
         this.input = React.createRef()
+        this.subscription = undefined
+        this._formRegister()
     }
 
+    _formRegister() {
+        if (!this.subscription && this.props._pubsub_message)
+            this.subscription = PubSub.subscribe(this.props._pubsub_message, _ => {
+                PubSub.publish(this.props._pubsub_message + pubsubMessageResponse, !this.validate().error)
+            })
+    }
+
+     componentWillUnmount() {
+         if (this.subscription)
+            PubSub.unsubscribe(this.subscription)
+    }
+    
     componentDidUpdate(props) {
         if (props.type !== this.props.type)
             this.type = this.props.type
@@ -44,7 +61,7 @@ export class GotenTextField extends Component {
     render() {
         return (
             <div>
-                <label className='label'>{this.props.label ? this.props.label + ' ' : ''}</label>
+                <label className='label'>{this.props.label + ' '}</label>
                 {React.cloneElement(<input />, this._getProps())}
                 <br/>
                 { this.props.showError &&
@@ -64,7 +81,7 @@ export class GotenTextField extends Component {
             required: this.props.required,
             ref: this.input,
         }
-        const { bindContainer, bindProp, errorMessage, errorRequiredMessage, showError, ...props } = auxProps
+        const { bindContainer, bindProp, errorMessage, errorRequiredMessage, showError, _pubsub_message, ...props } = auxProps
         return props
     }
 
