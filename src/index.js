@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { PubSub } from 'pubsub-js'
 
 import './gotenTextField.css'
@@ -48,7 +49,7 @@ export class GotenTextField extends Component {
             })
     }
 
-     componentWillUnmount() {
+    componentWillUnmount() {
          if (this.subscription)
             PubSub.unsubscribe(this.subscription)
     }
@@ -71,7 +72,7 @@ export class GotenTextField extends Component {
         )
     }
 
-    _getProps(){
+    _getProps() {
         const auxProps = {
             ...this.props,
             className: this.props.className + (this.props.showError && this.state.error.error ? ' error' : ''),
@@ -126,4 +127,17 @@ export class GotenTextField extends Component {
         this.setState({error})
         return error
     }
+}
+
+GotenTextField.propTypes = {
+    bindContainer: PropTypes.object,
+    bindProp: PropTypes.string,
+    errorMessage: PropTypes.string,
+    errorRequiredMessage: PropTypes.string,
+    label: PropTypes.string,
+    pattern: PropTypes.string,
+    placeholder: PropTypes.string,
+    required: PropTypes.bool,
+    showError: PropTypes.bool,
+    type: PropTypes.string
 }

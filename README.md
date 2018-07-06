@@ -110,7 +110,7 @@ export default class App extends Component {
 | label                | String        |                  | Label of the text field. |
 | pattern              | String        |                  | Pattern to validate the value of the text field. |
 | placeholder          | String        |                  | Default text of the text field. |
-| required. | Boolean       | False            | If the text field is required              |
+| required  | Boolean       | False            | If the text field is required              |
 | showError            | Boolean       | False            | Show error messages. |
 | type                 | String        | text             | Type of the text field. |
 
