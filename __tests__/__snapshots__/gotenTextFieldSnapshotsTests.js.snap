@@ -9,7 +9,6 @@ exports[`GotenTextField snapshots type email 1`] = `
   </label>
   <input
     className="undefined"
-    label="Email"
     onChange={[Function]}
     type="email"
     value=""
@@ -27,7 +26,6 @@ exports[`GotenTextField snapshots type invalid 1`] = `
   </label>
   <input
     className="undefined"
-    label="Invalid"
     onChange={[Function]}
     type="invalid"
     value=""
@@ -45,7 +43,6 @@ exports[`GotenTextField snapshots type number 1`] = `
   </label>
   <input
     className="undefined"
-    label="Number"
     onChange={[Function]}
     type="number"
     value=""
@@ -63,7 +60,6 @@ exports[`GotenTextField snapshots type password 1`] = `
   </label>
   <input
     className="undefined"
-    label="Password"
     onChange={[Function]}
     type="password"
     value=""
@@ -81,7 +77,6 @@ exports[`GotenTextField snapshots type text 1`] = `
   </label>
   <input
     className="undefined"
-    label="Text"
     onChange={[Function]}
     type="text"
     value=""
@@ -99,7 +94,6 @@ exports[`GotenTextField snapshots type time 1`] = `
   </label>
   <input
     className="undefined"
-    label="Time"
     onChange={[Function]}
     type="time"
     value=""
@@ -117,7 +111,6 @@ exports[`GotenTextField snapshots type url 1`] = `
   </label>
   <input
     className="undefined"
-    label="Url"
     onChange={[Function]}
     type="url"
     value=""

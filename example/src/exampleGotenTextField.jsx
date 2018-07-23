@@ -14,6 +14,7 @@ export default class ExampleGotenTextField extends Component {
         this.refsGotenTextFieldWithPattern = React.createRef()
         this.refsGotenTextField = {}
         this.gotenTextFields = {}
+        this.refsGotenTextFieldMultiline = React.createRef()
     }
 
     separator(cant=1) {
@@ -132,6 +133,27 @@ export default class ExampleGotenTextField extends Component {
                         onClick={this.onClickValidateForm}
                     />
                 </form>
+                {this.separator(2)}
+                <GotenTextField
+                    placeholder={'Insert a text...'}
+                    componentLabel={
+                        <div className='title'> GotenTextField Multiline</div>
+                    }
+                    multiline={true}
+                    type={'text'}
+                    errorMessage={'Please inset a text using the correct pattern'}
+                    errorRequiredMessage={'This field is required'}
+                    required={true}
+                    showError={true}
+                    ref={this.refsGotenTextFieldMultiline}
+                />
+                <input
+                    type='submit'
+                    value='Validate And Show Input'
+                    onClick={() => {
+                        this.refsGotenTextFieldMultiline.current.validate()
+                    }}
+                />
                 {this.separator(2)}
                 <div className='title'> GotenTextField with pattern</div>
                 <table>

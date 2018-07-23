@@ -66,7 +66,10 @@ export class GotenTextField extends Component {
                     <label className='label'>{this.props.label + ' '}</label>
                 }
                 { this.props.componentLabel }
-                {React.cloneElement(<input />, this._getProps())}
+                { this.props.multiline ?
+                    React.cloneElement(<textarea />, this._getProps()) :
+                    React.cloneElement(<input />, this._getProps())
+                }
                 <br/>
                 { this.props.showError &&
                     <label className='error-message'>{this.state.error.errorMessage}</label>
@@ -87,13 +90,15 @@ export class GotenTextField extends Component {
         }
         const { 
             bindContainer, 
-            bindProp, 
+            bindProp,
+            componentLabel,
             errorMessage, 
-            errorRequiredMessage, 
+            errorRequiredMessage,
+            key,
+            label,
+            multiline,
             showError, 
             _pubsub_message, 
-            componentLabel, 
-            key, 
             ...props 
         } = auxProps
         return props
@@ -149,6 +154,7 @@ GotenTextField.propTypes = {
     errorMessage: PropTypes.string,
     errorRequiredMessage: PropTypes.string,
     label: PropTypes.string,
+    multiline: PropTypes.bool,
     pattern: PropTypes.string,
     placeholder: PropTypes.string,
     required: PropTypes.bool,
