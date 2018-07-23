@@ -72,7 +72,12 @@ export default class App extends Component {
                 <div className='title'>GotenTextField</div>
                 <GotenTextField
                     placeholder={'[0-9]{2}\/[0-9]{2}\/[0-9]{4}'}
-                    label={'Date Pattern'}
+                    // label={'Date Pattern'}
+                    componentLabel={
+                        <label>
+                            Date Pattern
+                        </label>
+                    }
                     type={'text'} // email; number; password; date; time; url
                     pattern={'[0-9]{2}\/[0-9]{2}\/[0-9]{4}'}
                     errorMessage={'Please insert a text using the correct pattern'}
@@ -105,6 +110,7 @@ export default class App extends Component {
 | ---------------------|:-------------:| :---------------:| -------------|
 | bindContainer        | Object        |                  | Container of the attributes that will be binded to the value of the text fields. |
 | bindProp             | String        |                  | Attribute`s name of the bindContainer. |
+| componentLabel       | Component     |                  | Label component, who will be renderized. |
 | errorMessage         | String        | String Message   | Error message corresponding to the pattern or type. |
 | errorRequiredMessage | String        | String Message   | Error message corresponding to the Required prop. |
 | label                | String        |                  | Label of the text field. |

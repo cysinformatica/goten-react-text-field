@@ -166,6 +166,20 @@ export default class ExampleGotenTextField extends Component {
                         this.refsGotenTextFieldWithPattern.current.validate()
                     }}
                 />
+                {this.separator(2)}
+                <GotenTextField
+                    placeholder={'Label personalizado'}
+                    componentLabel={
+                        <div style={{color: 'green'}}>
+                            Label personalizado
+                        </div>
+                    }
+                    type={'text'}
+                    errorMessage={'Please inset a text using the correct pattern'}
+                    errorRequiredMessage={'This field is required'}
+                    required={true}
+                    showError={true}
+                />
             </div>
         )
     }

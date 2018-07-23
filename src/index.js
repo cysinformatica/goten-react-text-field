@@ -62,7 +62,10 @@ export class GotenTextField extends Component {
     render() {
         return (
             <div>
-                <label className='label'>{this.props.label + ' '}</label>
+                { this.props.label && !this.props.componentLabel &&
+                    <label className='label'>{this.props.label + ' '}</label>
+                }
+                { this.props.componentLabel }
                 {React.cloneElement(<input />, this._getProps())}
                 <br/>
                 { this.props.showError &&
@@ -82,7 +85,17 @@ export class GotenTextField extends Component {
             required: this.props.required,
             ref: this.input,
         }
-        const { bindContainer, bindProp, errorMessage, errorRequiredMessage, showError, _pubsub_message, ...props } = auxProps
+        const { 
+            bindContainer, 
+            bindProp, 
+            errorMessage, 
+            errorRequiredMessage, 
+            showError, 
+            _pubsub_message, 
+            componentLabel, 
+            key, 
+            ...props 
+        } = auxProps
         return props
     }
 
@@ -132,6 +145,7 @@ export class GotenTextField extends Component {
 GotenTextField.propTypes = {
     bindContainer: PropTypes.object,
     bindProp: PropTypes.string,
+    componentLabel: PropTypes.element,
     errorMessage: PropTypes.string,
     errorRequiredMessage: PropTypes.string,
     label: PropTypes.string,
