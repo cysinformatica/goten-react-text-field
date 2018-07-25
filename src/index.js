@@ -42,11 +42,9 @@ export class GotenTextField extends Component {
         this._formRegister()
     }
 
-    _formRegister() {
-        if (!this.subscription && this.props._pubsub_message)
-            this.subscription = PubSub.subscribe(this.props._pubsub_message, _ => {
-                PubSub.publish(this.props._pubsub_message + pubsubMessageResponse, !this.validate().error)
-            })
+    componentDidMount() {
+        if (this.props.value !== this.state.value)
+            this._valueUpdate(this.props.value)
     }
 
     componentWillUnmount() {
@@ -102,6 +100,13 @@ export class GotenTextField extends Component {
             ...props 
         } = auxProps
         return props
+    }
+
+    _formRegister() {
+        if (!this.subscription && this.props._pubsub_message)
+            this.subscription = PubSub.subscribe(this.props._pubsub_message, _ => {
+                PubSub.publish(this.props._pubsub_message + pubsubMessageResponse, !this.validate().error)
+            })
     }
 
     _onChange = (event) => {
