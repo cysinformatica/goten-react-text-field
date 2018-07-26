@@ -25,9 +25,9 @@ const regex = {
     number: /^-?[0-9]+(.[0-9]+)?$/,
     date: /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/,
     time: /^[0-9]{2}:[0-9]{2}$/,
-    url: /^[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/,
-    password: /./,
-    text: /./
+    url: /^([-a-zA-Z]{3,}:\/\/)?[-a-zA-Z0-9._]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/,
+    password: /.+/,
+    text: /.+/
 }
 
 export class GotenTextField extends Component {
@@ -43,7 +43,7 @@ export class GotenTextField extends Component {
     }
 
     componentDidMount() {
-        if (this.props.value !== this.state.value)
+        if (this.props.value && this.props.value !== this.state.value)
             this._valueUpdate(this.props.value)
     }
 
@@ -128,20 +128,20 @@ export class GotenTextField extends Component {
     }
 
     validate() {
-        const typeRegex = this.props.pattern ? new RegExp(this.props.pattern) : (regex[this.type] ? regex[this.type] : regex[defaultType])
         const defaultTypeSelectedErrorMessage = defaultTypeErrorMessage.replace('{type}', this.type).replace('{label}', this.props.label)
+        const isVoid = this.value === defaultValue || !this.value
+        let typeRegex = regex[this.type] ? regex[this.type] : regex[defaultType]
+        typeRegex = this.props.pattern ? new RegExp(this.props.pattern) : typeRegex
         let error = {
             error: false,
             errorMessage: ''  
         }
-        if (this.props.required && this.value === defaultValue) {
+        if (this.props.required && isVoid) {
             error = {
                 error: true,
                 errorMessage: this.props.errorRequiredMessage ? this.props.errorRequiredMessage : defaultIsRequiredMessage
             }
-        } else if (!this.props.required && this.value === defaultValue) {
-            null
-        } else if (!typeRegex.test(this.value)) {
+        } else if (!isVoid && !typeRegex.test(this.value)) {
             error = {
                 error: true,
                 errorMessage: this.props.errorMessage ? this.props.errorMessage : defaultTypeSelectedErrorMessage
