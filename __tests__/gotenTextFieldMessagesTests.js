@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 import { GotenTextField } from '../src'
 
 describe('GotenTextField error messages', () => {
-    const classNameErrorLabel = 'error-message'
+    const classNameErrorLabel = 'error-message col'
     const classNameErrorInput = 'error'
 
     it('wrong pattern with message', async () => {

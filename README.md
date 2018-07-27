@@ -22,7 +22,7 @@
 ## Usage
 
 ``` jsx
-var TextArea = require('goten-react-text-field').GotenTextField; // ES5
+var GotenTextField = require('goten-react-text-field').GotenTextField; // ES5
  
 import { GotenTextField } from 'goten-react-text-field'; // ES6
 

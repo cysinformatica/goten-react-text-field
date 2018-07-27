@@ -59,18 +59,19 @@ export class GotenTextField extends Component {
 
     render() {
         return (
-            <div>
-                { this.props.label && !this.props.componentLabel &&
-                    <label className='label'>{this.props.label + ' '}</label>
-                }
-                { this.props.componentLabel }
-                { this.props.multiline ?
-                    React.cloneElement(<textarea />, this._getProps()) :
-                    React.cloneElement(<input />, this._getProps())
-                }
-                <br/>
-                { this.props.showError &&
-                    <label className='error-message'>{this.state.error.errorMessage}</label>
+            <div className='row'>
+                <div className='col'>
+                    {this.props.label && !this.props.componentLabel &&
+                        <label className='labelInput'>{this.props.label + ' '}</label>
+                    }
+                    {this.props.componentLabel}
+                    {this.props.multiline ?
+                        React.cloneElement(<textarea />, this._getProps()) :
+                        React.cloneElement(<input />, this._getProps())
+                    }
+                </div>
+                {this.props.showError &&
+                    <label className='error-message col'>{this.state.error.errorMessage}</label>
                 }
             </div>
         )
