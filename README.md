@@ -107,12 +107,12 @@ export default class App extends Component {
 ## Props
 
 | Prop Name            | Type          | Default          | Description  |
-| ---------------------|:-------------:| :---------------:| -------------|
+| ---------------------|:------------- | :--------------- | -------------|
 | bindContainer        | Object        |                  | Container of the attributes that will be binded to the value of the text fields. |
 | bindProp             | String        |                  | Attribute`s name of the bindContainer. |
 | componentLabel       | Component     |                  | Label component, who will be renderized. |
-| errorMessage         | String        | String Message   | Error message corresponding to the pattern or type. |
-| errorRequiredMessage | String        | String Message   | Error message corresponding to the Required prop. |
+| errorMessage         | String, Component | String Message   | Error message corresponding to the pattern or type. |
+| errorRequiredMessage | String, Component | String Message   | Error message corresponding to the Required prop. |
 | label                | String        |                  | Label of the text field. |
 | pattern              | String        |                  | Pattern to validate the value of the text field. |
 | placeholder          | String        |                  | Default text of the text field. |
