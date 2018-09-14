@@ -34,7 +34,7 @@ export class GotenTextField extends Component {
     constructor(props) {
         super(props)
         this.state = textInputState
-        this.state.value = this.props.value ? this.props.value : defaultValue
+        this.state.value = this.props.value != undefined ? this.props.value : defaultValue
         this.value = this.state.value
         this.type = this.props.type ? this.props.type : defaultType
         this.input = React.createRef()
@@ -43,37 +43,37 @@ export class GotenTextField extends Component {
     }
 
     componentDidMount() {
-        if (this.props.value && this.props.value !== this.state.value)
+        if (this.props.value != undefined && this.props.value !== this.state.value)
             this._valueUpdate(this.props.value)
     }
 
     componentWillUnmount() {
-         if (this.subscription)
+        if (this.subscription)
             PubSub.unsubscribe(this.subscription)
     }
-    
+
     componentDidUpdate(props) {
         if (props.type !== this.props.type)
             this.type = this.props.type
+        if (this.props.value != undefined && this.props.value !== this.state.value)
+            this._valueUpdate(this.props.value)
     }
 
     render() {
         return (
-            <div className='row'>
-                <div className='col'>
-                    {this.props.label && !this.props.componentLabel &&
-                        <label className='labelInput'>{this.props.label + ' '}</label>
-                    }
-                    {this.props.componentLabel}
-                    {this.props.multiline ?
-                        React.cloneElement(<textarea />, this._getProps()) :
-                        React.cloneElement(<input />, this._getProps())
-                    }
-                </div>
-                {this.props.showError &&
-                    <label className='error-message col'>{this.state.error.errorMessage}</label>
+            <React.Fragment>
+                {this.props.label && !this.props.componentLabel &&
+                    <label className='labelInput'>{this.props.label + ' '}</label>
                 }
-            </div>
+                {this.props.componentLabel}
+                {this.props.multiline ?
+                    React.cloneElement(<textarea />, this._getProps()) :
+                    React.cloneElement(<input />, this._getProps())
+                }
+                {this.props.showError &&
+                    <label className='error-message'>{this.state.error.errorMessage}</label>
+                }
+            </React.Fragment>
         )
     }
 
@@ -87,18 +87,18 @@ export class GotenTextField extends Component {
             required: this.props.required,
             ref: this.input,
         }
-        const { 
-            bindContainer, 
+        const {
+            bindContainer,
             bindProp,
             componentLabel,
-            errorMessage, 
+            errorMessage,
             errorRequiredMessage,
             key,
             label,
             multiline,
-            showError, 
-            _pubsub_message, 
-            ...props 
+            showError,
+            _pubsub_message,
+            ...props
         } = auxProps
         return props
     }
@@ -113,7 +113,7 @@ export class GotenTextField extends Component {
     _onChange = (event) => {
         this._valueUpdate(event.target.value)
         if (this.props.onChange)
-            this.props.onChange(event)
+            this.props.onChange(event, event.target.value)
     }
 
     _valueUpdate(value) {
@@ -135,7 +135,7 @@ export class GotenTextField extends Component {
         typeRegex = this.props.pattern ? new RegExp(this.props.pattern) : typeRegex
         let error = {
             error: false,
-            errorMessage: ''  
+            errorMessage: ''
         }
         if (this.props.required && isVoid) {
             error = {
@@ -148,7 +148,7 @@ export class GotenTextField extends Component {
                 errorMessage: this.props.errorMessage ? this.props.errorMessage : defaultTypeSelectedErrorMessage
             }
         }
-        this.setState({error})
+        this.setState({ error })
         return error
     }
 }
@@ -158,9 +158,9 @@ GotenTextField.propTypes = {
     bindProp: PropTypes.string,
     componentLabel: PropTypes.element,
     errorMessage: PropTypes.oneOfType([PropTypes.string,
-        PropTypes.element]),
+    PropTypes.element]),
     errorRequiredMessage: PropTypes.oneOfType([PropTypes.string,
-        PropTypes.element]),
+    PropTypes.element]),
     label: PropTypes.string,
     multiline: PropTypes.bool,
     pattern: PropTypes.string,

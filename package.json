@@ -1,6 +1,6 @@
 {
   "name": "goten-react-text-field",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "GotenTextField is a react component that facilitates the use of text inputs.",
   "author": "Nicolas Meilan <sebastian.nicolas.meilan@gmail.com>",
   "main": "dist/index.js",
