@@ -111,6 +111,9 @@ export class GotenTextField extends Component {
     }
 
     _onChange = (event) => {
+        this.setState({
+            error: textInputState.error
+        })
         this._valueUpdate(event.target.value)
         if (this.props.onChange)
             this.props.onChange(event, event.target.value)
