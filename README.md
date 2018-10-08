@@ -128,6 +128,14 @@ export default class App extends Component {
 
 Validate the **GotenTextField** using the props **types**, **pattern** and **required**.
 
+- **clearError()**
+
+Clears the text field's error (if any).
+
+- **clear()**
+
+Clears any text and errors the text field has.
+
 ## Contributions
 
 To contribute to this package, we propose the following workflow:

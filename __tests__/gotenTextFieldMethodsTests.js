@@ -392,4 +392,27 @@ describe('GotenTextField validate tests', () => {
         }
         expect(error).toEqual(gotenTextField.validate())
     })
+
+    it('clear errors', () => {
+        const type = 'text'
+        const label = 'Required True'
+        const gotenTextField = renderer.create(
+            <GotenTextField
+                label={label}
+                type={type}
+                required={true}
+            />
+        ).getInstance()
+        error = {
+            error: true,
+            errorMessage: defaultIsRequiredMessage
+        }
+        expect(error).toEqual(gotenTextField.validate())
+        gotenTextField.clearError()
+        error = {
+            error: false,
+            errorMessage: ''
+        }
+        expect(gotenTextField.state.error).toEqual(error)
+    })
 })

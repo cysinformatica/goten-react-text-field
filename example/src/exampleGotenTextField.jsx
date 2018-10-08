@@ -15,6 +15,7 @@ export default class ExampleGotenTextField extends Component {
         this.refsGotenTextField = {}
         this.gotenTextFields = {}
         this.refsGotenTextFieldMultiline = React.createRef()
+        this.labelPersonalizadoRef = React.createRef()
     }
 
     separator(cant=1) {
@@ -89,6 +90,24 @@ export default class ExampleGotenTextField extends Component {
                 this.refsGotenTextField[key].validate()
             }
         }
+    }
+
+    clearAllInputs = () => {
+        for (const key in this.refsGotenTextField) {
+            this.refsGotenTextField[key].clear()
+        }
+        this.labelPersonalizadoRef.current.clear()
+        this.refsGotenTextFieldMultiline.current.clear()
+        this.refsGotenTextFieldWithPattern.current.clear()
+    }
+
+    clearAllErrors = () => {
+        for (const key in this.refsGotenTextField) {
+            this.refsGotenTextField[key].clearError()
+        }
+        this.labelPersonalizadoRef.current.clearError()
+        this.refsGotenTextFieldMultiline.current.clearError()
+        this.refsGotenTextFieldWithPattern.current.clearError()
     }
 
     render() {
@@ -191,6 +210,7 @@ export default class ExampleGotenTextField extends Component {
                 {this.separator(2)}
                 <GotenTextField
                     placeholder={'Label personalizado'}
+                    ref={this.labelPersonalizadoRef}
                     componentLabel={
                         <div style={{color: 'green'}}>
                             Label personalizado
@@ -201,6 +221,16 @@ export default class ExampleGotenTextField extends Component {
                     errorRequiredMessage={'This field is required'}
                     required={true}
                     showError={true}
+                />
+                <input
+                    type='submit'
+                    value='Clear inputs'
+                    onClick={this.clearAllInputs}
+                />
+                <input
+                    type='submit'
+                    value='Clear errors'
+                    onClick={this.clearAllErrors}
                 />
             </div>
         )

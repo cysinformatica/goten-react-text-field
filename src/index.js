@@ -110,10 +110,19 @@ export class GotenTextField extends Component {
             })
     }
 
-    _onChange = (event) => {
+    clear = () => {
+        this.clearError()
+        this._valueUpdate(defaultValue)
+    }
+
+    clearError = () => {
         this.setState({
             error: textInputState.error
         })
+    }
+
+    _onChange = (event) => {
+        this.clearError()
         this._valueUpdate(event.target.value)
         if (this.props.onChange)
             this.props.onChange(event, event.target.value)
