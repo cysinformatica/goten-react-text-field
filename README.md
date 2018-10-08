@@ -1,10 +1,10 @@
 # Goten Text Field
 
-**GotenTextField** is a **react component** that facilitates the use of text inputs.
+**GotenTextField** is a **React component** that facilitates the use of text inputs.
 - It allows to **bind** an object to the value of a text input.
-- It helps to validate a text input using its **type**.
-- You can especify a **pattern (Regex)** to validate the text input.
-- It allows to change the default message error and show its after validate a text input.
+- It helps validating a text input using its **type**.
+    - You can specify a **pattern (Regex)** for the validation.
+    - You can modify the error's display message and add certain functionality like pop-ups.
 
 ## Index
 
@@ -17,7 +17,7 @@
 
 ## Install
 
-```npm install -s goten-react-text-field```
+```npm install goten-react-text-field```
 
 ## Usage
 
@@ -109,18 +109,18 @@ export default class App extends Component {
 | Prop Name            | Type          | Default          | Description  |
 | ---------------------|:------------- | :--------------- | -------------|
 | bindContainer        | Object        |                  | Container of the attributes that will be binded to the value of the text fields. |
-| bindProp             | String        |                  | Attribute`s name of the bindContainer. |
-| componentLabel       | Component     |                  | Label component, who will be renderized. |
+| bindProp             | String        |                  | Attribute`s name of the bindContainer object. |
+| componentLabel       | Component     |                  | Label component, same as 'label' but with a component. |
 | errorMessage         | String, Component | String Message   | Error message corresponding to the pattern or type. |
-| errorRequiredMessage | String, Component | String Message   | Error message corresponding to the Required prop. |
+| errorRequiredMessage | String, Component | String Message   | Error message corresponding to the 'required' prop. |
 | label                | String        |                  | Label of the text field. |
-| pattern              | String        |                  | Pattern to validate the value of the text field. |
-| placeholder          | String        |                  | Default text of the text field. |
-| required  | Boolean       | False            | If the text field is required              |
-| showError            | Boolean       | False            | Show error messages. |
-| type                 | String        | text             | Type of the text field. |
+| pattern              | String        |                  | Pattern to validate the value of the text field with. |
+| placeholder          | String        |                  | Placeholder. |
+| required  | Boolean       | False            | Whether the text field is required (true) or not.|
+| showError            | Boolean       | False            | Whether to show error messages (true) or not. |
+| type                 | String        | text             | The text field's type. |
 
-- The other props are inherited from the react component **input**
+- All other props are inherited from the react component **input**
 
 ## Methods
 
@@ -138,7 +138,7 @@ Clears any text and errors the text field has.
 
 ## Contributions
 
-To contribute to this package, we propose the following workflow:
-1. Add an issue with related tags to describe the contribution (is it a bug?, a feature request?).
-2. Branch your solution from develop, with the name as ```#<issue_number>_<descriptive_name>```.
+To contribute to this package, we use the following workflow:
+1. Add an issue with related tags to describe the contribution (is it a bug? a feature request?).
+2. Branch your solution from develop, naming it like ```#<issue_number>-<descriptive_name>```.
 3. Send a pull request and wait for approval/corrections.
