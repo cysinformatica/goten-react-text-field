@@ -2,6 +2,7 @@
 
 **GotenTextField** is a **React component** that facilitates the use of text inputs.
 - It allows to **bind** an object to the value of a text input.
+    - This avoids common boilerplate of state definition and setState calls.
 - It helps validating a text input using its **type**.
     - You can specify a **pattern (Regex)** for the validation.
     - You can modify the error's display message and add certain functionality like pop-ups.
